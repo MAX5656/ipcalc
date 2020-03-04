@@ -20,12 +20,26 @@
   </style>
 </head>
 <body>
+  <script>
+    function ensureNumberInputRange(s, maxValue){
+      let v = parseInt(s.value);
+      if(maxValue < v)
+        v = maxValue;
+      s.value = v;
+    }
+    function onNumberInput(s, maxValue){
+      ensureNumberInputRange(s, maxValue);
+    }
+    function onNumberBlur(s, maxValue){
+      ensureNumberInputRange(s, maxValue);
+    }
+  </script>
   <div>
-    <input id="o1n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" /> . 
-    <input id="o2n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" /> . 
-    <input id="o3n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" /> . 
-    <input id="o4n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" /> / 
-    <input id="bn" type="number" maxlength="2" max="32" min="0" onfocus="this.select();" />
+    <input id="o1n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,255)"; onblur="onNumberInput(this,255)"; /> . 
+    <input id="o2n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,255)"; onblur="onNumberInput(this,255)"; /> . 
+    <input id="o3n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,255)"; onblur="onNumberInput(this,255)"; /> . 
+    <input id="o4n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,255)"; onblur="onNumberInput(this,255)"; /> / 
+    <input id="bn" type="number" maxlength="2" max="32" min="0" onfocus="this.select();" oninput="onNumberInput(this,32)"; onblur="onNumberInput(this,255)"; />
   </div>
   
   <script>
