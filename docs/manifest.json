@@ -9,7 +9,7 @@
             "type": "image/png"
         }
     ],
-    "start_url": "/ipcalc/docs/index.html",
+    "start_url": "/ipcalc/index.html",
     "display": "fullscreen",
     "theme_color": "#eeeeee",
     "background_color": "#eeeeee"
