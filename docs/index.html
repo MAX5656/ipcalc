@@ -75,6 +75,8 @@
     <dt>NUMBER:</dt><dd id="numip"></dd>
   </dl>
   <script>
+  displayResult();
+    
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').then(function(registration) {
       console.log('ServiceWorker registration has succeeded. Scope : ', registration.scope);
