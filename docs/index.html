@@ -35,26 +35,33 @@
       return o1.toString() + "." + o2.toString() + "." + o3.toString() + "." + o4.toString();
     }
     function displayResult(){
+      console.log("displayResult START");
       let o1 = document.getElementById('o1n').value;
       let o2 = document.getElementById('o2n').value;
       let o3 = document.getElementById('o3n').value;
       let o4 = document.getElementById('o4n').value;
       let b = document.getElementById('bn').value;
-      
+
+      console.log("displayResult 1");
       let v = o1 << 24 | o2 << 16 | o3 << 8 | o4;
       let m = 1 << (32 - b);
       let vs = v & (m - 1);
       let vb = vs + m - 1;
 
+      console.log("displayResult 2");
       document.getElementById('topip').innerText = getIpString(vs);
       document.getElementById('btmip').innerText = getIpString(vb);
       document.getElementById('numip').innerText = m.toString();
+
+      console.log("displayResult DONE");
     }
     function onNumberInput(s, maxValue){
       ensureNumberInputRange(s, maxValue);
+      displayResult();
     }
     function onNumberBlur(s, maxValue){
       ensureNumberInputRange(s, maxValue);
+      displayResult();
     }
   </script>
   <div>
