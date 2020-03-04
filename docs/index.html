@@ -27,6 +27,29 @@
         v = maxValue;
       s.value = v;
     }
+    function getIpString(s){
+      let o1 = s >>> 24;
+      let o2 = s >>> 16 & 0xFF;
+      let o3 = s >>> 8 & 0xFF;
+      let o4 = s & 0xFF;
+      return o1.toString() + "." + o2.toString() + "." + o3.toString() + "." + o4.toString();
+    }
+    function displayResult(){
+      let o1 = document.getElementById('o1n').value;
+      let o2 = document.getElementById('o2n').value;
+      let o3 = document.getElementById('o3n').value;
+      let o4 = document.getElementById('o4n').value;
+      let b = document.getElementById('bn').value;
+      
+      let v = o1 << 24 | o2 << 16 | o3 << 8 | o4;
+      let m = 1 << (32 - b);
+      let vs = v & (m - 1);
+      let vb = vs + m - 1;
+
+      document.getElementById('topip').innerText = getIpString(vs);
+      document.getElementById('btmip').innerText = getIpString(vb);
+      document.getElementById('numip').innerText = m.toString();
+    }
     function onNumberInput(s, maxValue){
       ensureNumberInputRange(s, maxValue);
     }
@@ -35,13 +58,17 @@
     }
   </script>
   <div>
-    <input id="o1n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,255)"; onblur="onNumberInput(this,255)"; /> . 
-    <input id="o2n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,255)"; onblur="onNumberInput(this,255)"; /> . 
-    <input id="o3n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,255)"; onblur="onNumberInput(this,255)"; /> . 
-    <input id="o4n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,255)"; onblur="onNumberInput(this,255)"; /> / 
-    <input id="bn" type="number" maxlength="2" max="32" min="0" onfocus="this.select();" oninput="onNumberInput(this,32)"; onblur="onNumberInput(this,255)"; />
+    <input id="o1n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,255)"; onblur="onNumberInput(this,255)"; value="192" /> . 
+    <input id="o2n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,255)"; onblur="onNumberInput(this,255)"; value="168" /> . 
+    <input id="o3n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,255)"; onblur="onNumberInput(this,255)"; value="0" /> . 
+    <input id="o4n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,255)"; onblur="onNumberInput(this,255)"; value="64" /> / 
+    <input id="bn" type="number" maxlength="2" max="32" min="0" onfocus="this.select();" oninput="onNumberInput(this,32)"; onblur="onNumberInput(this,255)"; value="30" />
   </div>
-  
+  <dl>
+    <dt>TOP:</dt><dd id="topip"></dd>
+    <dt>BOTTOM:</dt><dd id="btmip"></dd>
+    <dt>NUMBER:</dt><dd id="numip"></dd>
+  </dl>
   <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').then(function(registration) {
