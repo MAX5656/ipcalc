@@ -44,9 +44,10 @@
 
       console.log("displayResult 1");
       let v = o1 << 24 | o2 << 16 | o3 << 8 | o4;
-      let m = 1 << (32 - b);
+      let n = 1 << (32 - b);
+      let m = n - 1;
       let vs = v & ~m;
-      let vb = vs + m - 1;
+      let vb = vs | m;
 
       console.log("displayResult 2");
       document.getElementById('topip').innerText = getIpString(vs);
