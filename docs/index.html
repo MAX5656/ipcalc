@@ -22,7 +22,7 @@
 <body>
   <script>
     function ensureNumberInputRange(s, minValue, maxValue){
-      let v = parseInt(s.value);
+      let v = parseInt("0" + s.value, 10);
       if(v < minValue)
         v = minValue;
       if(maxValue < v)
