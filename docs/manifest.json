@@ -1,0 +1,16 @@
+{
+    "name": "IPv4 address calculator",
+    "short_name": "IPv4 calc",
+    "description": "IPv4 address calculator pwa",
+    "icons": [
+        {
+            "src": "icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/ipcalc/docs/index.html",
+    "display": "fullscreen",
+    "theme_color": "#eeeeee",
+    "background_color": "#eeeeee"
+}
