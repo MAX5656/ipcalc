@@ -44,7 +44,7 @@
       let b = document.getElementById('bn').value;
 
       let v = o1 << 24 | o2 << 16 | o3 << 8 | o4;
-      let n = 1 << (32 - b);
+      let n = Math.Pow(2, 32 - b);
       let m = n - 1;
       let vs = v & ~m;
       let vb = vs | m;
