@@ -4,7 +4,10 @@ const CACHE_VERSION = 'v1';
 const CACHE_NAME = `${registration.scope}!${CACHE_VERSION}`;
 
 const urlsToCache = [
-  '.'
+  '.',
+  'ress.css',
+  'main.css',
+  'main.js'
 ];
 
 self.addEventListener('install', (event) => {
