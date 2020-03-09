@@ -63,19 +63,32 @@
   </script>
   <h2>IPv4 address calculator v2003.6.0</h2>
   <div>
+    <!--
     <input id="o1n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,0,255)"; onblur="onNumberInput(this,0,255)"; value="192" /> . 
     <input id="o2n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,0,255)"; onblur="onNumberInput(this,0,255)"; value="168" /> . 
     <input id="o3n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,0,255)"; onblur="onNumberInput(this,0,255)"; value="1" /> . 
     <input id="o4n" type="number" maxlength="3" max="255" min="0" onfocus="this.select();" oninput="onNumberInput(this,0,255)"; onblur="onNumberInput(this,0,255)"; value="68" /> / 
     <input id="bn" type="number" maxlength="2" max="32" min="0" onfocus="this.select();" oninput="onNumberInput(this,0,32)"; onblur="onNumberInput(this,0,255)"; value="27" />
-  </div>
+  -->
+    <select id="o1n"></select>.
+    <select id="o2n"></select>.
+    <select id="o3n"></select>.
+    <select id="o4n"></select> / 
+    <select id="bn"></select>
+</div>
   <dl>
     <dt>TOP:</dt><dd id="topip"></dd>
     <dt>BOTTOM:</dt><dd id="btmip"></dd>
     <dt>NUMBER:</dt><dd id="numip"></dd>
   </dl>
   <script>
-  displayResult();
+//  displayResult();
+
+setNuberSelectElementContent('o1n', 256);
+setNuberSelectElementContent('o2n', 256);
+setNuberSelectElementContent('o3n', 256);
+setNuberSelectElementContent('o4n', 256);
+setNuberSelectElementContent('bn', 33);    
     
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').then(function(registration) {
